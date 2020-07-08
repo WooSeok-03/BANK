@@ -18,8 +18,6 @@ public:
 		this->balance = balance;
 		this->cusName = new char[MAX_LEN];
 		strcpy_s(this->cusName, MAX_LEN, cusName);
-		
-		//이거 다 깊은복사로 만들어야함
 	}
 
 	Account(Account& copy_user)	//복사 생성자
@@ -42,7 +40,7 @@ public:
 	}
 
 	virtual int Interest(int money) {
-		int interest = (this->balance + money) * 0.01 ;	//이자
+		int interest = (this->balance + money) * 0.01 ;	//보통 계좌 이자
 		cout << "이자액 : " << interest << endl << endl;
 		return interest;
 	}
@@ -95,7 +93,7 @@ public:
 	}
 
 	virtual int Interest(int money) {
-		int interest = (this->balance + money) * 0.02;	//이자
+		int interest = (this->balance + money) * 0.02;	//예금 계좌 이자
 		cout << "이자액 : " << interest << endl << endl;
 		return interest;
 	}
@@ -146,7 +144,7 @@ public:
 		}
 	}
 
-	void Ordinary_Account_Open() {
+	void Ordinary_Account_Open() {	//보통계좌 개설
 		int accID;
 		int balance;
 		int Resident_registration_number;
@@ -192,7 +190,7 @@ public:
 		cout << endl;
 	}
 
-	void Deposit_Account_Open() {
+	void Deposit_Account_Open() {	//예금계좌 개설
 		int accID;
 		int deposit_accID;
 
@@ -233,7 +231,7 @@ public:
 		cout << endl;
 	}
 
-	void Deposit() {
+	void Deposit() {	//입금
 		int Deposit_Amount;
 		int Check_AccID;
 
@@ -256,7 +254,7 @@ public:
 		cout << endl;
 	}
 
-	void Withdraw() {
+	void Withdraw() {	//출금
 		int Withdrawal_Amount;
 		int Check_AccID;
 
@@ -279,7 +277,7 @@ public:
 		cout << endl;
 	}
 
-	void Print_Account_Information() {
+	void Print_Account_Information() {   //전체 계좌 정보 출력
 
 		for (int i = 0; i < Member_Number; i++) {
 			Acc_Member[i]->Print_Account_Information();
